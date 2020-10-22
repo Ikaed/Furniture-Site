@@ -1,0 +1,130 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Möbelsite</title>
+    <meta http-equiv="cache-control" content="no-cache">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="./script.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Möbelsite</h1>
+        <table class="table" id="tbl">
+        </table>
+        <button onclick="$('#addModal').modal('show');" class="btn btn-primary">Lägg till ny möbel</button>
+    
+        <button onclick="getAllComments()" class="btn btn-primary">Läs alla kommentarer</button>
+         <button onclick="getSortBy()" class="btn btn-primary">Sortera</button>
+    </div>
+    <div class="modal" id="commOnModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Lämna kommentar</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    Möbelnamn:<input type="text" id="txtmobelNamn" class="form-control" readonly>
+                    ID:<input type="text" id="txtmobelID" class="form-control" readonly>
+                    Namn:<input type="text" id="txtNamn" class="form-control">
+                    Kommentar:<input type="text" id="txtKommentar" class="form-control">
+                   
+                    <button onclick="addComm()" class="btn btn-primary">Skicka »</button>
+                    
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Stäng</button>
+                </div>
+            </div>
+        </div>
+    </div>
+        <div class="modal" id="updateModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Ändra eller ta bort möbel</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                      ID:<input type="text" id="txtupdatemobelID" class="form-control" readonly>
+                    Möbelnamn:<input type="text" id="txtupdatemobelNamn" class="form-control">
+                  
+                    Produktinfo:<input type="text" id="txtupdateInfo" class="form-control">                  
+                    <br>
+            
+
+                <button onclick="updateFurniture()" class="btn btn-primary">Uppdatera möbel</button>
+                  
+                    <button onclick="deleteFurniture()" class="btn btn-danger">Ta bort möbel</button>
+                    
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Stäng</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal" id="addModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <!-- Modal header -->
+                <div class="modal-header">
+                    <h4 class="modal-title">Lägg till ny möbel</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <!-- Modal body -->
+                <div class="modal-body">
+        
+                    Möbelnamn:<input type="text" id="txtaddNamn" class="form-control">
+                    Produktinfo:<input type="text" id="txtaddInfo" class="form-control">
+                    Bild-URL:<input type="url" id="txtaddBild" class="form-control">
+                   
+                    <button onclick="addFurniture()" class="btn btn-primary">Lägg till »</button>
+
+                </div>
+
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Stäng</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="modal" id="showCommentsModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <!-- Modal header -->
+                <div class="modal-header">
+                    <h4 class="modal-title">Kommentarer</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <!-- Modal body -->
+                <div class="modal-body">
+        
+                           <table class="table" id="modalTable">
+                            </table>
+
+                </div>
+
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Stäng</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
